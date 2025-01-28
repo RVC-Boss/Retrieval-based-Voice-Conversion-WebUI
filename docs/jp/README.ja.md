@@ -100,7 +100,7 @@ pip install -r requirements-dml.txt
 - A カード ROCM(Linux)
 
 ```bash
-pip install -r requirements-amd.txt
+pip install -r requirements.txt
 ```
 
 - I カード IPEX(Linux)
@@ -201,6 +201,11 @@ pacman -S rocm-hip-sdk rocm-opencl-sdk
 export ROCM_PATH=/opt/rocm
 export HSA_OVERRIDE_GFX_VERSION=10.3.0
 ```
+
+そして、依存関係をインストールした後に、PyTorchをROCMバージョンで上書きする。
+````
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm6.2
+````
 
 同時に、現在のユーザーが`render`および`video`ユーザーグループに属していることを確認してください。
 
