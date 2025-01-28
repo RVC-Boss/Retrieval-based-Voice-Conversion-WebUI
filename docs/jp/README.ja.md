@@ -185,9 +185,9 @@ brew install ffmpeg
 
 - [rmvpe.onnx をダウンロード](https://huggingface.co/lj1995/VoiceConversionWebUI/blob/main/rmvpe.onnx)
 
-### 4. AMD グラフィックカード Rocm(オプション、Linux のみ)
+### 4. AMD グラフィックカード ROCM(オプション、Linux のみ)
 
-Linux システムで AMD の Rocm 技術をベースに RVC を実行したい場合、[こちら](https://rocm.docs.amd.com/en/latest/deploy/linux/os-native/install.html)で必要なドライバーを先にインストールしてください。
+Linux システムで AMD の ROCM 技術をベースに RVC を実行したい場合、[こちら](https://rocm.docs.amd.com/en/latest/deploy/linux/os-native/install.html)で必要なドライバーを先にインストールしてください。
 
 Arch Linux を使用している場合、pacman を使用して必要なドライバーをインストールできます。
 
