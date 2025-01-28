@@ -72,7 +72,7 @@ pip install torch torchvision torchaudio
 #pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117
 
 #For Linux + AMD Cards, you need to use the following pytorch versions:
-#pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm5.4.2
+#pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm6.2
 ```
 
 Then can use poetry to install the other dependencies:
@@ -170,9 +170,15 @@ pacman -S rocm-hip-sdk rocm-opencl-sdk
 
 You might also need to set these environment variables (e.g. on a RX6700XT):
 ````
-export ROCM_PATH=/opt/rocm
-export HSA_OVERRIDE_GFX_VERSION=10.3.0
+export ROCM_PATH=/opt/rocm #Set ROCM Executables Path
+export HSA_OVERRIDE_GFX_VERSION=10.3.0 #Spoof GPU Model for ROCM
 ````
+
+And overwrite PyTorch with its ROCM version after installing dependencies.
+````
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm6.2
+````
+
 Make sure your user is part of the `render` and `video` group:
 ````
 sudo usermod -aG render $USERNAME

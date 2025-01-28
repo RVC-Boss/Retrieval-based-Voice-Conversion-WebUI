@@ -81,8 +81,9 @@ pip install -r requirements-dml.txt
 ```
 - A卡ROCM(Linux)
 ```bash
-pip install -r requirements-amd.txt
+pip install -r requirements.txt
 ```
+随后前往 其他预模型准备 中的条目4以安装ROCM驱动程序以及对应的PyTorch版本。
 - I卡IPEX(Linux)
 ```bash
 pip install -r requirements-ipex.txt
@@ -152,9 +153,9 @@ brew install ffmpeg
 
 - 下载[rmvpe.onnx](https://huggingface.co/lj1995/VoiceConversionWebUI/blob/main/rmvpe.onnx)
 
-### 4. AMD显卡Rocm(可选, 仅Linux)
+### 4. AMD显卡ROCM(可选, 仅Linux)
 
-如果你想基于AMD的Rocm技术在Linux系统上运行RVC，请先在[这里](https://rocm.docs.amd.com/en/latest/deploy/linux/os-native/install.html)安装所需的驱动。
+如果你想基于AMD的ROCM技术在Linux系统上运行RVC，请先在[这里](https://rocm.docs.amd.com/en/latest/deploy/linux/os-native/install.html)安装所需的驱动，随后请访问[这里](https://pytorch.org/get-started/locally/)以安装PyTorch适用于ROCM对应的版本。
 
 若你使用的是Arch Linux，可以使用pacman来安装所需驱动：
 ````
@@ -162,8 +163,8 @@ pacman -S rocm-hip-sdk rocm-opencl-sdk
 ````
 对于某些型号的显卡，你可能需要额外配置如下的环境变量（如：RX6700XT）：
 ````
-export ROCM_PATH=/opt/rocm
-export HSA_OVERRIDE_GFX_VERSION=10.3.0
+export ROCM_PATH=/opt/rocm #Set ROCM Executables Path
+export HSA_OVERRIDE_GFX_VERSION=10.3.0 #Spoof GPU Model for ROCM
 ````
 同时确保你的当前用户处于`render`与`video`用户组内：
 ````

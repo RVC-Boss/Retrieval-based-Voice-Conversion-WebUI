@@ -100,7 +100,7 @@ pip install -r requirements-dml.txt
 - A カード ROCM(Linux)
 
 ```bash
-pip install -r requirements-amd.txt
+pip install -r requirements.txt
 ```
 
 - I カード IPEX(Linux)
@@ -185,9 +185,9 @@ brew install ffmpeg
 
 - [rmvpe.onnx をダウンロード](https://huggingface.co/lj1995/VoiceConversionWebUI/blob/main/rmvpe.onnx)
 
-### 4. AMD グラフィックカード Rocm(オプション、Linux のみ)
+### 4. AMD グラフィックカード ROCM(オプション、Linux のみ)
 
-Linux システムで AMD の Rocm 技術をベースに RVC を実行したい場合、[こちら](https://rocm.docs.amd.com/en/latest/deploy/linux/os-native/install.html)で必要なドライバーを先にインストールしてください。
+Linux システムで AMD の ROCM 技術をベースに RVC を実行したい場合、[こちら](https://rocm.docs.amd.com/en/latest/deploy/linux/os-native/install.html)で必要なドライバーを先にインストールしてください。
 
 Arch Linux を使用している場合、pacman を使用して必要なドライバーをインストールできます。
 
@@ -201,6 +201,11 @@ pacman -S rocm-hip-sdk rocm-opencl-sdk
 export ROCM_PATH=/opt/rocm
 export HSA_OVERRIDE_GFX_VERSION=10.3.0
 ```
+
+そして、依存関係をインストールした後に、PyTorchをROCMバージョンで上書きする。
+````
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm6.2
+````
 
 同時に、現在のユーザーが`render`および`video`ユーザーグループに属していることを確認してください。
 

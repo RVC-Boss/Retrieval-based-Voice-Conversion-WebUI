@@ -63,7 +63,7 @@ pip install torch torchvision torchaudio
 #pip instalar tocha torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117
 
 #Para placas Linux + AMD, você precisa usar as seguintes versões do pytorch:
-#pip instalar tocha torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm5.4.2
+#pip instalar tocha torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm6.2
 ```
 
 Então pode usar poesia para instalar as outras dependências:
@@ -89,7 +89,7 @@ for Intel ARC graphics cards on Linux / WSL using Python 3.10:
   pip install -r requirements-ipex.txt
 
 for AMD graphics cards on Linux (ROCm):
-  pip install -r requirements-amd.txt
+  pip install -r requirements.txt
 ```
 
 ------
@@ -165,6 +165,10 @@ Talvez você também precise definir estas variáveis de ambiente (por exemplo, 
 export ROCM_PATH=/opt/rocm
 export HSA_OVERRIDE_GFX_VERSION=10.3.0
 ````
+E substitui o PyTorch pela sua versão ROCM depois de instalar as dependências.a
+````
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm6.2
+```` 
 Verifique também se seu usuário faz parte do grupo `render` e `video`:
 ````
 sudo usermod -aG render $USERNAME

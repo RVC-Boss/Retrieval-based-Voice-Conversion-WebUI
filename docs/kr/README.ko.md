@@ -100,7 +100,7 @@ pip install -r requirements-dml.txt
 - A카드ROCM(Linux)
 
 ```bash
-pip install -r requirements-amd.txt
+pip install -r requirements.txt
 ```
 
 - I카드IPEX(Linux)
@@ -185,9 +185,9 @@ brew install ffmpeg
 
 - [rmvpe.onnx 다운로드](https://huggingface.co/lj1995/VoiceConversionWebUI/blob/main/rmvpe.onnx)
 
-### 4. AMD 그래픽 카드 Rocm(선택사항, Linux만 해당)
+### 4. AMD 그래픽 카드 ROCM(선택사항, Linux만 해당)
 
-Linux 시스템에서 AMD의 Rocm 기술을 기반으로 RVC를 실행하려면 [여기](https://rocm.docs.amd.com/en/latest/deploy/linux/os-native/install.html)에서 필요한 드라이버를 먼저 설치하세요.
+Linux 시스템에서 AMD의 ROCM 기술을 기반으로 RVC를 실행하려면 [여기](https://rocm.docs.amd.com/en/latest/deploy/linux/os-native/install.html)에서 필요한 드라이버를 먼저 설치하세요.
 
 Arch Linux를 사용하는 경우 pacman을 사용하여 필요한 드라이버를 설치할 수 있습니다.
 
@@ -201,6 +201,12 @@ pacman -S rocm-hip-sdk rocm-opencl-sdk
 export ROCM_PATH=/opt/rocm
 export HSA_OVERRIDE_GFX_VERSION=10.3.0
 ```
+
+그리고 종속 요소를 설치한 후 PyTorch를 ROCM 버전으로 덮어씁니다.
+
+````
+pip 설치 토치 토치비전 토치오디오 --index-url https://download.pytorch.org/whl/rocm6.2
+````
 
 동시에 현재 사용자가 `render` 및 `video` 사용자 그룹에 속해 있는지 확인하세요.
 
