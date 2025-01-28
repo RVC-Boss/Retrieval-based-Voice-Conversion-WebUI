@@ -63,7 +63,7 @@ pip install torch torchvision torchaudio
 #pip instalar tocha torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117
 
 #Para placas Linux + AMD, você precisa usar as seguintes versões do pytorch:
-#pip instalar tocha torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm5.4.2
+#pip instalar tocha torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm6.2
 ```
 
 Então pode usar poesia para instalar as outras dependências:

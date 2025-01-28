@@ -72,7 +72,7 @@ pip install torch torchvision torchaudio
 #pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117
 
 #For Linux + AMD Cards, you need to use the following pytorch versions:
-#pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm5.4.2
+#pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm6.2
 ```
 
 Then can use poetry to install the other dependencies:
