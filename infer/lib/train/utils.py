@@ -225,7 +225,6 @@ def plot_spectrogram_to_numpy(spectrogram):
         mpl_logger = logging.getLogger("matplotlib")
         mpl_logger.setLevel(logging.WARNING)
     import matplotlib.pylab as plt
-    import numpy as np
 
     fig, ax = plt.subplots(figsize=(10, 2))
     im = ax.imshow(spectrogram, aspect="auto", origin="lower", interpolation="none")
@@ -235,8 +234,7 @@ def plot_spectrogram_to_numpy(spectrogram):
     plt.tight_layout()
 
     fig.canvas.draw()
-    data = np.fromstring(fig.canvas.tostring_rgb(), dtype=np.uint8, sep="")
-    data = data.reshape(fig.canvas.get_width_height()[::-1] + (3,))
+    data = np.asarray(fig.canvas.buffer_rgba())
     plt.close()
     return data
 
@@ -251,7 +249,6 @@ def plot_alignment_to_numpy(alignment, info=None):
         mpl_logger = logging.getLogger("matplotlib")
         mpl_logger.setLevel(logging.WARNING)
     import matplotlib.pylab as plt
-    import numpy as np
 
     fig, ax = plt.subplots(figsize=(6, 4))
     im = ax.imshow(
@@ -266,8 +263,7 @@ def plot_alignment_to_numpy(alignment, info=None):
     plt.tight_layout()
 
     fig.canvas.draw()
-    data = np.fromstring(fig.canvas.tostring_rgb(), dtype=np.uint8, sep="")
-    data = data.reshape(fig.canvas.get_width_height()[::-1] + (3,))
+    data = np.asarray(fig.canvas.buffer_rgba())
     plt.close()
     return data
 
