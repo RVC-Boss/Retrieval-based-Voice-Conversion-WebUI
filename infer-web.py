@@ -1441,7 +1441,7 @@ with gr.Blocks(title="RVC WebUI") as app:
                 with gr.Row():
                     sr_ = gr.Radio(
                         label=i18n("目标采样率"),
-                        choices=["40k", "48k"],
+                        choices=["32k", "40k", "48k"],
                         value="40k",
                         interactive=True,
                     )
